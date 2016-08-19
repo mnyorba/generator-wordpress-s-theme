@@ -19,6 +19,12 @@ module.exports = generators.Base.extend({
       ));
 
       var prompts = [
+				{
+          type: 'input',
+          name: 'proxyname',
+          message: 'Localhost address',
+          default: 'localhost'
+        },
         {
           type: 'input',
           name: 'themename',
@@ -304,6 +310,7 @@ module.exports = generators.Base.extend({
           this.templatePath('_gulpfile.js'),
           this.destinationPath('gulpfile.js'),
           {
+            proxy_address: this.props.proxyname,
             theme_domain: this.props.themeslug,
             package_name: this.props.themename,
             theme_bugreport: this.props.bugreport,

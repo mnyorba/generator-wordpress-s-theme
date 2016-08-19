@@ -71,9 +71,9 @@ gulp.task('makepot', function () {
 
 gulp.task('browserSync', function() {
   browserSync({
-    proxy: 'localhost',
+    proxy: '<%= proxy_address %>\<%= theme_domain %>',
     port: 8080,
-    open: true,
+    open: false,
     notify: false
   });
 });
@@ -108,4 +108,4 @@ gulp.task('build', function(callback) {
   runSequence('build-clean', 'build-copy', 'build-zip', 'build-delete');
 });
 
-gulp.task('default', ['sass', 'lint', 'compress', 'makepot', 'watch', 'browserSync.reload']);
+gulp.task('default', ['sass', 'lint', 'compress', 'makepot', 'watch', 'browserSync']);

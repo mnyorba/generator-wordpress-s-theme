@@ -1,4 +1,4 @@
-# wordpress-s-theme
+# generator-wordpress-s-theme
 
 [Yeoman](http://yeoman.io/) generator for a WordPress starter theme (using [Underscores](https://github.com/Automattic/_s)) with [Gulp](http://gulpjs.com/) and other good stuff. This will install the last version of `_s` (Underscores) and optionally a Gulp setup ready for development and production.
 
@@ -10,10 +10,10 @@
 npm install -g yo gulp
 ```
 
-##### Install `wordpress-s-theme`:
+##### Install `generator-wordpress-s-theme`:
 
 ```bash
-npm install -g wordpress-s-theme
+npm install -g generator-wordpress-s-theme
 ```
 
 ### Run

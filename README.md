@@ -27,7 +27,7 @@ mkdir my-new-theme && cd $_
 ##### Run `yo wordpress-s-theme`, and fill the info:
 
 ```bash
-yo wp-s-theme
+yo wordpress-s-theme
 ```
 
 ## Gulp usage

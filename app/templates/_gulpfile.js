@@ -73,7 +73,7 @@ gulp.task('browserSync', function() {
   browserSync({
     proxy: '<%= proxy_address %>/<%= theme_domain %>',
     port: 8080,
-    open: false,
+    open: true,
     notify: false
   });
 });

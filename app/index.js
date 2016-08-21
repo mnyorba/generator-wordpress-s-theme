@@ -25,6 +25,12 @@ module.exports = generators.Base.extend({
           message: 'Localhost address',
           default: 'localhost'
         },
+				{
+          type: 'input',
+          name: 'domenname',
+          message: 'If you want to add a domain site',
+          default: 'localhost/mydomain'
+        },
         {
           type: 'input',
           name: 'themename',
@@ -311,6 +317,7 @@ module.exports = generators.Base.extend({
           this.destinationPath('gulpfile.js'),
           {
             proxy_address: this.props.proxyname,
+            proxy_domain: this.props.domenname,
             theme_domain: this.props.themeslug,
             package_name: this.props.themename,
             theme_bugreport: this.props.bugreport,

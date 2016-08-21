@@ -71,7 +71,7 @@ gulp.task('makepot', function () {
 
 gulp.task('browserSync', function() {
   browserSync({
-    proxy: '<%= proxy_address %>\<%= theme_domain %>',
+    proxy: '<%= proxy_address %>/<%= theme_domain %>',
     port: 8080,
     open: false,
     notify: false

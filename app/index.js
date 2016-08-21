@@ -29,7 +29,7 @@ module.exports = generators.Base.extend({
           type: 'input',
           name: 'domenname',
           message: 'If you want to add a domain site',
-          default: 'localhost/mydomain'
+          default: ''
         },
         {
           type: 'input',

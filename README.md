@@ -36,6 +36,10 @@ yo wordpress-s-theme
 - Run `gulp build` to build your theme for production (you will find a `my-new-theme.zip` file in `my-new-theme/dist/`)
 - (Optional) Run `gulp build-clean` before `gulp build` to cleanup the `my-new-theme/dist/` folder
 
+## Bower usage
+- Run `bower install --save <package>` to install frontend dependencies
+- Run `gulp wiredep` to include SCSS file in `/sass/style.scss`
+
 ## Versioning
 
 Maintained under the [Semantic Versioning guidelines](http://semver.org/).

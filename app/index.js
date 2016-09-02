@@ -238,6 +238,24 @@ module.exports = generators.Base.extend({
 
             next();
           });
+        } else if (fileStats.name === 'style.scss') {
+          fs.readFile(filePath, 'utf8', function (err,data) {
+            if (err) {
+              done(error);
+            }/*--------------------------------------------------------------   */
+
+            var result;
+
+            result = data.replace(/\/*--------------------------------------------------------------/i, '\n\n// bower:scss' + '\n\n// endbower\n\n' + '\n\n/*--------------------------------------------------------------');
+
+            fs.writeFile(filePath, result, 'utf8', function (err) {
+              if (err) {
+                done(error);
+              }
+            });
+
+            next();
+          });
         } else if (fileStats.name === '_s.pot') {
           fs.readFile(filePath, 'utf8', function (err,data) {
             if (err) {
@@ -349,6 +367,7 @@ module.exports = generators.Base.extend({
         this.npmInstall(['del'], { 'saveDev': true });
         this.npmInstall(['gulp-zip'], { 'saveDev': true });
         this.npmInstall(['run-sequence'], { 'saveDev': true });
+        this.npmInstall(['wiredep'], { 'saveDev': true });
       }
     }
   },

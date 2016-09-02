@@ -246,7 +246,7 @@ module.exports = generators.Base.extend({
 
             var result;
 
-            result = data.replace(/\/*--------------------------------------------------------------/i, '\n\n// bower:scss' + '\n\n// endbower\n\n' + '\n\n/*--------------------------------------------------------------');
+            result = data.replace(/\/*--------------------------------------------------------------/, '\n\n// bower:scss' + '\n\n// endbower\n\n' + '\n\n/*--------------------------------------------------------------');
 
             fs.writeFile(filePath, result, 'utf8', function (err) {
               if (err) {

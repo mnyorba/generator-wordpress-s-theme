@@ -208,6 +208,7 @@ module.exports = generators.Base.extend({
             result = result.replace(/(Description: )(.+)/g, '$1' + _this.props.description);
             result = result.replace(/(Text Domain: )(.+)/g, '$1' + _this.props.themeslug);
             result = result.replace(/_s is based on Underscores/g, _this.props.themename + ' is based on Underscores');
+            result = result.replace(/\@import "normalize";/g, '\n\n// bower:scss' + '\n\n// endbower\n\n' + '\n\n@import "normalize";');
 
             fs.writeFile(filePath, result, 'utf8', function (err) {
               if (err) {
@@ -229,24 +230,6 @@ module.exports = generators.Base.extend({
             result = result.replace(/A starter theme called _s, or underscores./g, _this.props.description);
             result = result.replace(/(== Description ==\n\n)(.+)/g, '$1' + 'Long description here');
             result = result.replace(/== Frequently Asked Questions ==[\s\S]*?== Credits ==/g, '== Credits ==');
-
-            fs.writeFile(filePath, result, 'utf8', function (err) {
-              if (err) {
-                done(error);
-              }
-            });
-
-            next();
-          });
-        } else if (fileStats.name === 'style.scss') {
-          fs.readFile(filePath, 'utf8', function (err,data) {
-            if (err) {
-              done(error);
-            }/*--------------------------------------------------------------   */
-
-            var result;
-
-            result = data.replace(/\/*--------------------------------------------------------------/, '\n\n// bower:scss' + '\n\n// endbower\n\n' + '\n\n/*--------------------------------------------------------------');
 
             fs.writeFile(filePath, result, 'utf8', function (err) {
               if (err) {

@@ -14,6 +14,7 @@ var del          = require('del');
 var zip          = require('gulp-zip');
 var browserSync = require('browser-sync');
 var runSequence  = require('run-sequence');
+var wiredep 		= require('wiredep').stream;
 var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
 
 var build_files = [
@@ -32,6 +33,15 @@ var build_files = [
   '!.editorconfig',
   '!.jshintrc'
 ];
+
+gulp.task('wiredep', function () {
+  gulp.src('sass/style.scss')
+    .pipe(wiredep({
+      optional: 'configuration',
+      goes: 'here'
+    }))
+    .pipe(gulp.dest('sass/'));
+});
 
 gulp.task('sass', function () {
   gulp.src(['sass/style.scss'])

@@ -49,11 +49,11 @@ gulp.task('wiredep', function () {
 
 gulp.task('sass', function () {
   gulp.src(['sass/style.scss'])
-    .pipe($.plumber())
-    .pipe($.sourcemaps.init())
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer(['> 1%', 'last 2 versions', 'Firefox ESR']))
-    .pipe($.sourcemaps.write())
+    .pipe(sourcemaps.write())
     .pipe(gcmq())
     .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({stream:true}));

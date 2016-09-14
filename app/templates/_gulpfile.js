@@ -1,8 +1,10 @@
 'use strict';
 
 var gulp         = require('gulp');
+var plumber         = require('gulp-plumber');
 var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
+var sourcemaps = require('gulp-sourcemaps');
 var rename       = require('gulp-rename');
 var uglify       = require('gulp-uglify');
 var jshint       = require('gulp-jshint');
@@ -47,8 +49,11 @@ gulp.task('wiredep', function () {
 
 gulp.task('sass', function () {
   gulp.src(['sass/style.scss'])
+    .pipe($.plumber())
+    .pipe($.sourcemaps.init())
     .pipe(sass({outputStyle: 'expanded'}))
-    .pipe(autoprefixer(['last 2 versions']))
+    .pipe(autoprefixer(['> 1%', 'last 2 versions', 'Firefox ESR']))
+    .pipe($.sourcemaps.write())
     .pipe(gcmq())
     .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({stream:true}));

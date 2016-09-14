@@ -337,8 +337,10 @@ module.exports = generators.Base.extend({
 
         this.npmInstall(['gulp'], { 'saveDev': true });
         this.npmInstall(['browser-sync'], { 'saveDev': true });
+        this.npmInstall(['gulp-plumber'], { 'saveDev': true });
         this.npmInstall(['gulp-sass'], { 'saveDev': true });
         this.npmInstall(['gulp-autoprefixer'], { 'saveDev': true });
+        this.npmInstall(['gulp-sourcemaps'], { 'saveDev': true });
         this.npmInstall(['gulp-rename'], { 'saveDev': true });
         this.npmInstall(['gulp-uglify'], { 'saveDev': true });
         this.npmInstall(['jshint'], { 'saveDev': true });

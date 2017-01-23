@@ -9,8 +9,12 @@ var downloadStatus = require('download-status');
 var walk = require('walk');
 var path = require('path');
 
-module.exports = generators.Base.extend({
-  prompting: {
+//module.exports = generators.Base.extend({
+module.exports = class extends Generator {
+  initializing() {
+    this.props = {};
+  }
+  prompting() {
     askToUser: function askToUser() {
       var done = this.async();
 
@@ -113,9 +117,9 @@ module.exports = generators.Base.extend({
         done();
       }.bind(this));
     }
-  },
+  }
 
-  writing: {
+  writing() {
     installUnderscores: function installUnderscores() {
       var done = this.async();
       var callback = function (error, remote) {
@@ -328,9 +332,9 @@ module.exports = generators.Base.extend({
         );
       }
     }
-  },
+  }
 
-  install: {
+  install() {
     installPackages: function installPackages() {
       if (this.props.gulpsetup) {
         this.log(chalk.yellow('\nInstalling required packages...'));
@@ -355,9 +359,9 @@ module.exports = generators.Base.extend({
         this.npmInstall(['wiredep'], { 'saveDev': true });
       }
     }
-  },
+  }
 
-  end: {
+  end() {
     endMessage: function endMessage() {
       this.log(chalk.green('\nAll Done!!\n------------------------\n'));
 
@@ -365,5 +369,5 @@ module.exports = generators.Base.extend({
         this.log('\nRun ' + chalk.green('gulp') + ' to start the development and ' + chalk.green('gulp build') + ' to create a zip file in ' + chalk.white('dist/' + this.props.themeslug + '.zip') + ' ready for production.');
       }
     }
-  },
-});
+  }
+};

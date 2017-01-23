@@ -8,16 +8,10 @@ var download = require('download');
 var downloadStatus = require('download-status');
 var walk = require('walk');
 var path = require('path');
-//const Generator = require('yeoman-generator');
-const Generator = require('wordpress-s-theme');
 
-//module.exports = generators.Base.extend({
-module.exports = class extends Generator {
-  initializing() {
-    this.props = {};
-  }
-  prompting() {
-    function askToUser() {
+module.exports = generators.Base.extend({
+  prompting: {
+    askToUser: function askToUser() {
       var done = this.async();
 
       this.log(yosay(
@@ -119,10 +113,10 @@ module.exports = class extends Generator {
         done();
       }.bind(this));
     }
-  }
+  },
 
-  writing() {
-    function installUnderscores() {
+  writing: {
+    installUnderscores: function installUnderscores() {
       var done = this.async();
       var callback = function (error, remote) {
         if (error) {
@@ -139,9 +133,9 @@ module.exports = class extends Generator {
         .dest('.')
         .use(downloadStatus())
         .run(callback);
-    }
+    },
 
-    function deleteFiles() {
+    deleteFiles: function deleteFiles() {
       var done = this.async();
       var dir = this.destinationRoot();
 
@@ -162,9 +156,9 @@ module.exports = class extends Generator {
 
         done();
       });
-    }
+    },
 
-    function parseThemeFiles() {
+    parseThemeFiles: function parseThemeFiles() {
       var done = this.async();
       var _this = this;
       var walker;
@@ -282,9 +276,9 @@ module.exports = class extends Generator {
       walker.on("end", function () {
         done();
       });
-    }
+    },
 
-    function packageFiles() {
+    packageFiles: function packageFiles() {
       this.log(chalk.yellow('\nCopying configuration files...'));
 
       if (this.props.gitignore) {
@@ -334,10 +328,10 @@ module.exports = class extends Generator {
         );
       }
     }
-  }
+  },
 
-  install() {
-    function installPackages() {
+  install: {
+    installPackages: function installPackages() {
       if (this.props.gulpsetup) {
         this.log(chalk.yellow('\nInstalling required packages...'));
 
@@ -361,15 +355,15 @@ module.exports = class extends Generator {
         this.npmInstall(['wiredep'], { 'saveDev': true });
       }
     }
-  }
+  },
 
-  end() {
-    function endMessage() {
+  end: {
+    endMessage: function endMessage() {
       this.log(chalk.green('\nAll Done!!\n------------------------\n'));
 
       if (this.props.gulpsetup) {
         this.log('\nRun ' + chalk.green('gulp') + ' to start the development and ' + chalk.green('gulp build') + ' to create a zip file in ' + chalk.white('dist/' + this.props.themeslug + '.zip') + ' ready for production.');
       }
     }
-  }
-};
+  },
+});

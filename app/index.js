@@ -8,8 +8,8 @@ var download = require('download');
 var downloadStatus = require('download-status');
 var walk = require('walk');
 var path = require('path');
-const Generator = require('yeoman-generator');
-//const Generator = require('wordpress-s-theme yeoman-generator');
+//const Generator = require('yeoman-generator');
+const Generator = require('wordpress-s-theme');
 
 //module.exports = generators.Base.extend({
 module.exports = class extends Generator {

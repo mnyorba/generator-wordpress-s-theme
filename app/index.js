@@ -120,7 +120,7 @@ module.exports = class extends Generator {
   }
 
   writing() {
-    installUnderscores: function installUnderscores() {
+    function installUnderscores() {
       var done = this.async();
       var callback = function (error, remote) {
         if (error) {
@@ -139,7 +139,7 @@ module.exports = class extends Generator {
         .run(callback);
     },
 
-    deleteFiles: function deleteFiles() {
+    function deleteFiles() {
       var done = this.async();
       var dir = this.destinationRoot();
 
@@ -162,7 +162,7 @@ module.exports = class extends Generator {
       });
     },
 
-    parseThemeFiles: function parseThemeFiles() {
+    function parseThemeFiles() {
       var done = this.async();
       var _this = this;
       var walker;
@@ -282,7 +282,7 @@ module.exports = class extends Generator {
       });
     },
 
-    packageFiles: function packageFiles() {
+    function packageFiles() {
       this.log(chalk.yellow('\nCopying configuration files...'));
 
       if (this.props.gitignore) {
@@ -335,7 +335,7 @@ module.exports = class extends Generator {
   }
 
   install() {
-    installPackages: function installPackages() {
+    function installPackages() {
       if (this.props.gulpsetup) {
         this.log(chalk.yellow('\nInstalling required packages...'));
 
@@ -362,7 +362,7 @@ module.exports = class extends Generator {
   }
 
   end() {
-    endMessage: function endMessage() {
+    function endMessage() {
       this.log(chalk.green('\nAll Done!!\n------------------------\n'));
 
       if (this.props.gulpsetup) {

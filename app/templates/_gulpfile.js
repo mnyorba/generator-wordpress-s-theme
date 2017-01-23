@@ -83,7 +83,7 @@ gulp.task('makepot', function () {
       bugReport: '<%= theme_bugreport %>',
       team: '<%= author %> <<%= author_email %>>'
     }))
-    .pipe(gulp.dest('languages'))
+    .pipe(gulp.dest('languages/<%= theme_domain %>.pot'))
     .pipe(browserSync.reload({stream:true}));
 });
 

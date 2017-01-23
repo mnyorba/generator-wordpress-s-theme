@@ -137,7 +137,7 @@ module.exports = class extends Generator {
         .dest('.')
         .use(downloadStatus())
         .run(callback);
-    },
+    }
 
     function deleteFiles() {
       var done = this.async();
@@ -160,7 +160,7 @@ module.exports = class extends Generator {
 
         done();
       });
-    },
+    }
 
     function parseThemeFiles() {
       var done = this.async();
@@ -280,7 +280,7 @@ module.exports = class extends Generator {
       walker.on("end", function () {
         done();
       });
-    },
+    }
 
     function packageFiles() {
       this.log(chalk.yellow('\nCopying configuration files...'));

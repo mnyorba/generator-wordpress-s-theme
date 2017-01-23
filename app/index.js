@@ -15,7 +15,7 @@ module.exports = class extends Generator {
     this.props = {};
   }
   prompting() {
-    askToUser: function askToUser() {
+    function askToUser() {
       var done = this.async();
 
       this.log(yosay(

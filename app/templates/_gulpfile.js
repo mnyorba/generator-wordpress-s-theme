@@ -53,8 +53,8 @@ gulp.task('sass', function () {
     .pipe(sourcemaps.init())
     .pipe(sass({outputStyle: 'expanded'}))
     .pipe(autoprefixer(['> 1%', 'last 2 versions', 'Firefox ESR']))
-    .pipe(sourcemaps.write())
     .pipe(gcmq())
+    .pipe(sourcemaps.write('maps'))
     .pipe(gulp.dest('.'))
     .pipe(browserSync.reload({stream:true}));
 });

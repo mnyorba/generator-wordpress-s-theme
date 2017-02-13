@@ -1,10 +1,10 @@
 'use strict';
 
 var gulp         = require('gulp');
-var plumber         = require('gulp-plumber');
+var plumber      = require('gulp-plumber');
 var sass         = require('gulp-sass');
 var autoprefixer = require('gulp-autoprefixer');
-var sourcemaps = require('gulp-sourcemaps');
+var sourcemaps   = require('gulp-sourcemaps');
 var rename       = require('gulp-rename');
 var uglify       = require('gulp-uglify');
 var jshint       = require('gulp-jshint');
@@ -14,9 +14,9 @@ var sort         = require('gulp-sort');
 var gcmq         = require('gulp-group-css-media-queries');
 var del          = require('del');
 var zip          = require('gulp-zip');
-var browserSync = require('browser-sync');
+var browserSync  = require('browser-sync');
 var runSequence  = require('run-sequence');
-var wiredep 		= require('wiredep').stream;
+var wiredep 		 = require('wiredep').stream;
 var js_files     = ['js/*.js', '!js/*.min.js', '!js/lib/**/*.js'];
 
 var build_files = [

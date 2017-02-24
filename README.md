@@ -9,9 +9,9 @@
 >Reason: not support [Nodejs](https://nodejs.org/) v7.x.x in [node-sass module](https://github.com/sass/node-sass/releases/tag/v3.10.0).
 >
 >Job application ends with the message: 
->```
->work Error: Node Sass does not yet support your current environment...
->'''
+>
+>```work Error: Node Sass does not yet support your current environment...```
+>
 
 ## Installation
 

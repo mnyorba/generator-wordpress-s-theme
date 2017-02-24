@@ -2,6 +2,17 @@
 
 [Yeoman](http://yeoman.io/) generator for a WordPress starter theme (using [Underscores](https://github.com/Automattic/_s)) with [Gulp](http://gulpjs.com/) and other good stuff. This will install the last version of `_s` (Underscores) and optionally a Gulp setup ready for development and production.
 
+>## Important
+>#### Warning!
+>The generator works only correct with [Nodejs](https://nodejs.org/) v6.x.x. and below.
+>
+>Reason: not support [Nodejs](https://nodejs.org/) v7.x.x in [node-sass module](https://github.com/sass/node-sass/releases/tag/v3.10.0).
+>
+>Job application ends with the message: 
+>```
+>work Error: Node Sass does not yet support your current environment...
+>'''
+
 ## Installation
 
 ##### Install required tools `yo` and `gulp`:
